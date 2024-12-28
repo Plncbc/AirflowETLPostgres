@@ -25,6 +25,8 @@ If everything is ok,
 - login: **airflow**
 - password: **airflow**
 
+***dag in airflow must be started manually***
+
 <details><summary><b>Structure:</b></summary>
  
 ![Project structure](images/pet_project_structure.jpg)
