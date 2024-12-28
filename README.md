@@ -10,7 +10,6 @@ the following scripts should be executed in the working directory
 
 Linux:
 - ```./run_project.sh ```
-- 
 Windows:
 - ```./run_project.bat ```
 
