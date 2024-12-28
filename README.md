@@ -16,6 +16,7 @@ Windows:
 
 - ```./run_project.bat ```
 
+
 ***manual***
 - ```echo -e "AIRFLOW_UID=$(id -u)" > .env ```
 - ```sudo docker compose up airflow-init ```
