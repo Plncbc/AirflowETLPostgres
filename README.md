@@ -13,7 +13,8 @@ the following scripts should be executed in the working directory
 - ```sudo docker compose up airflow-init ```
 - ``` sudo docker compose up ```
 
-If everything is ok, 
+If everything is ok,
+ 
 ***postgresql connection:***
 - adress: **localhost:5454**
 - login: **admin**
@@ -25,7 +26,7 @@ If everything is ok,
 - password: **airflow**
 
 <details><summary><b>Structure:</b></summary>
-![Project structure](./images/pet_project_structure.jpg)
+![Project structure](images/pet_project_structure.jpg)
 </details>
 
 <details><summary><b>Screenshots:</b></summary>
