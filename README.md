@@ -6,7 +6,7 @@ Demo project for skills demonstration
 **RUN GUIDE:** 
 the following scripts should be executed in the working directory
 
-***auto***
+***auto:***
 
 Linux:
 
