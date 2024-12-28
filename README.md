@@ -24,7 +24,7 @@ If everything is ok,
 - adress: **localhost:8080**
 - login: **airflow**
 - password: **airflow**
-
+![Project structure](https://github.com/Plncbc/AirflowETLPostgres/blob/master/images/pet_project_structure.jpg?raw=true)
 <details><summary><b>Structure:</b></summary>
 ![Project structure](https://github.com/Plncbc/AirflowETLPostgres/blob/master/images/pet_project_structure.jpg?raw=true)
 </details>
