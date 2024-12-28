@@ -27,7 +27,7 @@ If everything is ok,
 
 <details><summary><b>Structure:</b></summary>
  
-![Project structure](https://github.com/Plncbc/AirflowETLPostgres/blob/master/images/pet_project_structure.jpg?raw=true)
+![Project structure](images/pet_project_structure.jpg)
 
 </details>
 
