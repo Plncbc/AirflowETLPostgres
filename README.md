@@ -26,7 +26,7 @@ If everything is ok,
 - password: **airflow**
 
 <details><summary><b>Structure:</b></summary>
-![Project structure](images/pet_project_structure.jpg)
+![Project structure](https://github.com/Plncbc/AirflowETLPostgres/blob/master/images/pet_project_structure.jpg?raw=true)
 </details>
 
 <details><summary><b>Screenshots:</b></summary>
