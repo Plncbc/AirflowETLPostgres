@@ -5,8 +5,10 @@ Demo project for skills demonstration
 
 **RUN GUIDE:** 
 the following scripts should be executed in the working directory
+
 ***auto***
 - ```./run_project.sh ```
+- ```./run_project.bat ```
 
 ***manual***
 - ```echo -e "AIRFLOW_UID=$(id -u)" > .env ```
