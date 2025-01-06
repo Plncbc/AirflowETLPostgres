@@ -93,8 +93,8 @@ as $$
 		    st.staff_full_name,
 		    coalesce(sum(fo.quantity), 0) as total_sales_quantity,
 		    coalesce(sum(fo.quantity * fo.list_price * (1 - fo.discount)), 0) as total_sales_revenue,
-		    count(fo.order_id_sk) as orders_handled,
-		    coalesce(sum(fo.quantity * fo.list_price * (1 - fo.discount)) / count(fo.order_id_sk), 0) as revenue_per_order,
+		    count(distinct fo.order_id_sk) as orders_handled,
+		    coalesce(sum(fo.quantity * fo.list_price * (1 - fo.discount)) / count(distinct fo.order_id_sk), 0) as revenue_per_order,
 		    count(distinct fo.customer_id_sk) as customer_count,
 		    coalesce(avg(fo.discount), 0) as average_discount_given
 		from silver_layer.fact_orders fo
