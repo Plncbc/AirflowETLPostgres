@@ -414,7 +414,6 @@ create schema if not exists gold_layer;
 		avg_discount decimal(10, 2),
 		discounted_sales int,
 		total_orders int,
-		unique_customers int,
 		avg_revenue_per_order decimal(10, 2),
 		avg_items_per_order decimal(10, 2),
 		store_id_sk int,

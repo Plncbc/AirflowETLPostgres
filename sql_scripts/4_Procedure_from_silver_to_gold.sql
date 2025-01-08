@@ -132,7 +132,6 @@ as $$
 		    avg(fo.discount) as avg_discount,
 		    count(case when fo.discount > 0 then 1 end) as discounted_sales,
 		    count(distinct fo.order_id_sk) as total_orders,
-		    count(distinct fo.customer_id_sk) as unique_customers,
 		    sum(fo.quantity * fo.list_price * (1 - fo.discount)) / nullif(count(distinct fo.order_id_sk), 0) as avg_revenue_per_order,
 		    sum(fo.quantity) / nullif(count(distinct fo.order_id_sk), 0) as avg_items_per_order,
 		    ds.store_id_sk,
@@ -158,7 +157,6 @@ as $$
 	        avg_discount = source.avg_discount,
 	        discounted_sales = source.discounted_sales,
 	        total_orders = source.total_orders,
-	        unique_customers = source.unique_customers,
 	        avg_revenue_per_order = source.avg_revenue_per_order,
 	        avg_items_per_order = source.avg_items_per_order,
 	        store_id_sk = source.store_id_sk,
@@ -167,6 +165,6 @@ as $$
 	        store_state = source.store_state,
 	        store_zip_code = source.store_zip_code
 	when not matched then
-	    insert (product_id_sk, product_name, category_name, brand_name, total_quantity, total_revenue, avg_price, avg_discount, discounted_sales, total_orders, unique_customers, avg_revenue_per_order, avg_items_per_order, store_id_sk, store_name, store_city, store_state, store_zip_code)
-	    values (source.product_id_sk, source.product_name, source.category_name, source.brand_name, source.total_quantity, source.total_revenue, source.avg_price, source.avg_discount, source.discounted_sales, source.total_orders, source.unique_customers, source.avg_revenue_per_order, source.avg_items_per_order, source.store_id_sk, source.store_name, source.store_city, source.store_state, source.store_zip_code);
+	    insert (product_id_sk, product_name, category_name, brand_name, total_quantity, total_revenue, avg_price, avg_discount, discounted_sales, total_orders, avg_revenue_per_order, avg_items_per_order, store_id_sk, store_name, store_city, store_state, store_zip_code)
+	    values (source.product_id_sk, source.product_name, source.category_name, source.brand_name, source.total_quantity, source.total_revenue, source.avg_price, source.avg_discount, source.discounted_sales, source.total_orders, source.avg_revenue_per_order, source.avg_items_per_order, source.store_id_sk, source.store_name, source.store_city, source.store_state, source.store_zip_code);
 $$;	   
