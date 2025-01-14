@@ -48,16 +48,20 @@ If everything is ok,
 <p align="center">airflow graph</p>
 
 
+
 ![Project structure](images/sales_overview.jpg)
 <p align="center">sales overview</p>
+
 
 
 ![Project structure](images/customer_segmentation.jpg)
 <p align="center">customer segmentation</p>
 
 
+
 ![Project structure](images/staff_perfomance.jpg)
 <p align="center">staff perfomance</p>
+
 
 
 ![Project structure](images/store_product_analysis.jpg)
