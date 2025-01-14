@@ -44,6 +44,26 @@ If everything is ok,
 
 <details><summary><b>Screenshots:</b></summary>
 
+![Project structure](images/airflow_graph.jpg)
+
+<center>"airflow graph"</center>
+
+![Project structure](images/sales_overview.jpg)
+
+<center>"sales overviews"</center>
+
+![Project structure](images/customer_segmentation.jpg)
+
+<center>"customer segmentation"</center>
+
+![Project structure](images/staff_perfomance.jpg)
+
+<center>"staff perfomance"</center>
+
+![Project structure](images/store_product_analysis.jpg)
+
+<center>"store product analysis"</center>
+
 </details>
 
 **Technology stack:**
