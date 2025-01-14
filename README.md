@@ -36,6 +36,9 @@ If everything is ok,
 
 ***dag in airflow must be started manually***
 
+
+
+
 <details><summary><b>Structure:</b></summary>
  
 ![Project structure](images/pet_project_structure.jpg)
@@ -68,6 +71,8 @@ If everything is ok,
 <p align="center">store product analysis</p>
 
 </details>
+
+
 
 **Technology stack:**
 - PostgreSQL
