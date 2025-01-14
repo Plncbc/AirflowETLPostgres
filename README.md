@@ -45,24 +45,19 @@ If everything is ok,
 <details><summary><b>Screenshots:</b></summary>
 
 ![Project structure](images/airflow_graph.jpg)
-
-<center>"airflow graph"</center>
+<p align="center">airflow graph</p>
 
 ![Project structure](images/sales_overview.jpg)
-
-<center>"sales overviews"</center>
+<p align="center">sales overview</p>
 
 ![Project structure](images/customer_segmentation.jpg)
-
-<center>"customer segmentation"</center>
+<p align="center">customer segmentation</p>
 
 ![Project structure](images/staff_perfomance.jpg)
-
-<center>"staff perfomance"</center>
+<p align="center">staff perfomance</p>
 
 ![Project structure](images/store_product_analysis.jpg)
-
-<center>"store product analysis"</center>
+<p align="center">store product analysis</p>
 
 </details>
 
