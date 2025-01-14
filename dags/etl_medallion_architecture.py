@@ -12,7 +12,7 @@ default_args = {
 
 database_connection_id = "POSTGRES_DEFAULT"
 
-# Создание DAG
+# Create DAG
 with DAG(
     dag_id='etl_medallion_architecture',
     default_args=default_args,
@@ -22,26 +22,26 @@ with DAG(
     catchup=False,
 ) as dag:
 
-    # Выполнение первой процедуры
+    # Executing first procedure
     from_external_to_bronze = PostgresOperator(
         task_id='from_external_to_bronze',
         postgres_conn_id=database_connection_id,
         sql="CALL bronze_layer.from_external_to_bronze();",
     )
 
-    # Выполнение второй процедуры
+    # Executing second procedure
     from_bronze_to_silver = PostgresOperator(
         task_id='from_bronze_to_silver',
         postgres_conn_id=database_connection_id,
         sql="CALL silver_layer.from_bronze_to_silver();",
     )
 
-    # Выполнение третьей процедуры
+    # Executing third procedure
     from_silver_to_gold = PostgresOperator(
         task_id='from_silver_to_gold',
         postgres_conn_id=database_connection_id,
         sql="CALL gold_layer.from_silver_to_gold();",
     )
 
-    # Последовательность выполнения задач
+    # Procedural sequence
     from_external_to_bronze >> from_bronze_to_silver >> from_silver_to_gold
