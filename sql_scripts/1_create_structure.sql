@@ -199,12 +199,12 @@ create schema if not exists bronze_layer;
 	create table if not exists bronze_layer.stores (
 		store_id int primary key,
 		store_name varchar (255) not null,
-		phone varchar (25),
-		email varchar (255),
-		street varchar (255),
-		city varchar (255),
-		state varchar (10),
-		zip_code varchar (5)
+		store_phone varchar (25),
+		store_email varchar (255),
+		store_street varchar (255),
+		store_city varchar (255),
+		store_state varchar (10),
+		store_zip_code varchar (5)
 	);
 	
 	
@@ -334,8 +334,7 @@ create schema if not exists silver_layer;
 	
 	--fact_orders
 	create table if not exists silver_layer.fact_orders (
-		order_id_sk int not null default -1,
-		order_id_nk int not null,
+		order_id int not null default -1,
 		order_status int not null,
 		order_date date not null,
 		required_date date not null,
@@ -345,13 +344,9 @@ create schema if not exists silver_layer;
 		list_price decimal (10, 2) not null,
 		discount decimal (4, 2) not null default 0,
 		customer_id_sk int not null default -1,
-		customer_id_nk int not null,
 		store_id_sk int not null default -1,
-		store_id_nk int not null,
 		staff_id_sk int not null default -1,
-		staff_id_nk int not null,
-		product_id_sk int not null default -1,
-		product_id_nk int not null
+		product_id_sk int not null default -1
 	);
 ---------------------------------------------------------
 

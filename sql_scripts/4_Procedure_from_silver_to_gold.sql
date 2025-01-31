@@ -7,8 +7,8 @@ as $$
 	    select 
 		    concat(extract(year from order_date), '-', lpad(extract(month from order_date)::text, 2, '0')) as time_period,
 		    sum(quantity * list_price * (1 - discount)) as total_revenue, 
-		    count(distinct order_id_sk) as total_orders,
-		    sum(quantity * list_price * (1 - discount)) / count(distinct order_id_sk) as avg_order_value,
+		    count(distinct order_id) as total_orders,
+		    sum(quantity * list_price * (1 - discount)) / count(distinct order_id) as avg_order_value,
 		    count(distinct customer_id_sk) as unique_customers,
 		    sum(quantity * list_price * (discount)) as total_discounts,
 		    sum(quantity * list_price) as gross_revenue,
@@ -40,10 +40,10 @@ as $$
 			dc.customer_id_sk,
 			customer_full_name,
 			sum(quantity * list_price * (1 - discount)) as total_revenue,
-			count(distinct order_id_sk) as total_orders,
+			count(distinct order_id) as total_orders,
 			max(order_date) as last_order_date,
-			sum(fo.quantity * fo.list_price * (1 - fo.discount)) / count(distinct fo.order_id_sk) as avg_revenue_per_order,
-			sum(fo.quantity) / count(distinct fo.order_id_sk) as avg_order_size,
+			sum(fo.quantity * fo.list_price * (1 - fo.discount)) / count(distinct fo.order_id) as avg_revenue_per_order,
+			sum(fo.quantity) / count(distinct fo.order_id) as avg_order_size,
 			(
 		        select ds.store_name
 		        from silver_layer.fact_orders fo
@@ -93,8 +93,8 @@ as $$
 		    st.staff_full_name,
 		    coalesce(sum(fo.quantity), 0) as total_sales_quantity,
 		    coalesce(sum(fo.quantity * fo.list_price * (1 - fo.discount)), 0) as total_sales_revenue,
-		    count(distinct fo.order_id_sk) as orders_handled,
-		    coalesce(sum(fo.quantity * fo.list_price * (1 - fo.discount)) / count(distinct fo.order_id_sk), 0) as revenue_per_order,
+		    count(distinct fo.order_id) as orders_handled,
+		    coalesce(sum(fo.quantity * fo.list_price * (1 - fo.discount)) / count(distinct fo.order_id), 0) as revenue_per_order,
 		    count(distinct fo.customer_id_sk) as customer_count,
 		    coalesce(avg(fo.discount), 0) as average_discount_given
 		from silver_layer.fact_orders fo
@@ -131,9 +131,9 @@ as $$
 		    avg(fo.list_price * (1 - fo.discount)) as avg_price,
 		    avg(fo.discount) as avg_discount,
 		    count(case when fo.discount > 0 then 1 end) as discounted_sales,
-		    count(distinct fo.order_id_sk) as total_orders,
-		    sum(fo.quantity * fo.list_price * (1 - fo.discount)) / nullif(count(distinct fo.order_id_sk), 0) as avg_revenue_per_order,
-		    sum(fo.quantity) / nullif(count(distinct fo.order_id_sk), 0) as avg_items_per_order,
+		    count(distinct fo.order_id) as total_orders,
+		    sum(fo.quantity * fo.list_price * (1 - fo.discount)) / nullif(count(distinct fo.order_id), 0) as avg_revenue_per_order,
+		    sum(fo.quantity) / nullif(count(distinct fo.order_id), 0) as avg_items_per_order,
 		    ds.store_id_sk,
 		    ds.store_name,
 		    ds.store_city,
@@ -167,4 +167,4 @@ as $$
 	when not matched then
 	    insert (product_id_sk, product_name, category_name, brand_name, total_quantity, total_revenue, avg_price, avg_discount, discounted_sales, total_orders, avg_revenue_per_order, avg_items_per_order, store_id_sk, store_name, store_city, store_state, store_zip_code)
 	    values (source.product_id_sk, source.product_name, source.category_name, source.brand_name, source.total_quantity, source.total_revenue, source.avg_price, source.avg_discount, source.discounted_sales, source.total_orders, source.avg_revenue_per_order, source.avg_items_per_order, source.store_id_sk, source.store_name, source.store_city, source.store_state, source.store_zip_code);
-$$;	   
+$$;
